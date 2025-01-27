@@ -1,0 +1,6 @@
+framework module Pods_candle_ios_candle_iosUITests {
+  umbrella header "Pods-candle-ios-candle-iosUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}

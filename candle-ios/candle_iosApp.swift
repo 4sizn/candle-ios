@@ -9,9 +9,18 @@ import SwiftUI
 
 @main
 struct candle_iosApp: App {
+    init(){
+    }
     var body: some Scene {
         WindowGroup {
             ContentView()
+        }
+    }
+    
+    private func setupLocalWebServer() {
+        guard let resourcePath = Bundle.main.resourcePath else {
+            print("Resource path not found")
+            return
         }
     }
 }
