@@ -10,8 +10,19 @@ import WebKit
 
 struct WebView: UIViewRepresentable {
     let htmlFileName: String
+    
     func makeUIView(context: Context) -> WKWebView {
-        let webView = WKWebView()
+        let webView = WKWebView(frame: .zero, configuration: WKWebViewConfiguration())
+        webView.configuration.suppressesIncrementalRendering = false
+        webView.configuration.preferences.javaScriptEnabled = true
+        webView.configuration.preferences.setValue(true, forKey: "developerExtrasEnabled")
+        
+    #if !RELEASE
+        if #available(iOS 16.4, *) {
+            webView.isInspectable = true
+        }
+    #endif
+        
              return webView
     }
     
